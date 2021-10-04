@@ -1,0 +1,157 @@
+<div class='createQuiz'>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed" aria-expanded="true">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">MarkUp</a>
+      </div>
+
+      <div class="navbar-collapse collapse in" collapse="isCollapsed" aria-expanded="true">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#!/viewQuiz">View Quiz <span class="sr-only">(current)</span></a>
+          </li>
+          <li><a href="#">Analytic</a>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <button class="btn btn-danger myBtn">
+              LogOut
+            </button>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class='container createQuizContainer'>
+    <button class='btn btn-success' ng-click="showQuizHeadingDetails()">
+      Create Quiz <i class="fas fa-plus-circle"></i></button>
+
+
+    <div ng-if="quizStart">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">QUIZ</h3>
+      </div>
+      <div class="modal-body" id="modal-body">
+
+        <div class="form-group">
+          <label for="quizName" class="col-md-2 control-label quizHeadingDetails">Quiz Name:</label>
+          <div class="col-md-8">
+            <input type="text" class="form-control quizHeadingDetails" />
+          </div>
+        </div>
+        <br><br>
+        <div class='time'>
+          <div class="form-group">
+            <label for="marks" class="col-md-5 control-label quizHeadingDetails">Total Marks: </label>
+            <div class="col-md-4">
+              <input type="number" value="" class="form-control" />
+            </div>
+          </div>
+          <br><br>
+          <div class="form-group">
+            <label for="time" class="col-md-5 control-label quizHeadingDetails">Starting time:</label>
+            <div class="col-md-4">
+              <input type="number" ng-model="timw" value="" class="form-control" />
+            </div>
+          </div>
+          <br><br>
+          <div class="form-group">
+            <label for="time" class="col-md-5 control-label quizHeadingDetails">End time:</label>
+            <div class="col-md-4">
+              <input type="number" ng-model="timw" value="" class="form-control" />
+            </div>
+          </div>
+        </div>
+        <br>
+
+
+
+
+      </div>
+      <div class="modal-footer">
+
+        <button class="btn btn-primary" type="button" ng-click="showSection()">Next</button>
+        <!-- <button class="btn btn-warning" type="button" ng-click="">Delete</button> -->
+
+      </div>
+    </div>
+
+
+    <div class='main' ng-if="sectionShow">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modal-title" contenteditable="true">SECTION</h3>
+      </div>
+      <div class="modal-body" id="modal-body">
+
+        <div class="form-group">
+          <!-- <label for="quizName" class="col-md-2 control-label quizHeadingDetails"> Write question</label> -->
+          <div class="col-md-12">
+            <textarea placeholder="Write Question Here" type="text" class="form-control quizHeadingDetails"></textarea>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+
+          <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Option 1">
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+
+          <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Option 2">
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+
+          <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Option 3">
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Option 4">
+          </div>
+        </div>
+
+        <br>
+        <div class="form-group">
+          <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Correct Answer">
+          </div>
+        </div>
+        <br><br><br><br>
+      
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" type="button" my-directive >Add</button>
+      </div>
+    
+    </div>
+
+ 
+  </div>
+
+
+
+
+  <hr noshade="black">
+  <center>
+    <button ng-if="sectionShow" class='btn btn-success'>
+      Create
+    </button>
+  </center>
+</div>
