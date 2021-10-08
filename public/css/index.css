@@ -22,7 +22,7 @@ body{
     font-size:3rem;
 }
 .main_div{
-    background-color: black;
+    background-color:black;
     height: 70rem;
     display: flex;
     align-items: center;

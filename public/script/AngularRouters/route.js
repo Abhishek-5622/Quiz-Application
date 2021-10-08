@@ -9,10 +9,12 @@ angular.module('myroute', ['ngRoute']).config(function($routeProvider) {
       controller:'teacherController'
     })
     .when("/student-Login", {
-        templateUrl : "templates/studentTemplates/studentLogin.html"
+        templateUrl : "templates/studentTemplates/studentLogin.html",
+        controller:'studentController'
       })
       .when("/student-signup", {
-        templateUrl : "templates/studentTemplates/studentSignup.html"
+        templateUrl : "templates/studentTemplates/studentSignup.html",
+        controller:'studentController'
       })
       .when("/teacher-signup", {
         templateUrl : "templates/teacherTemplates/teacherSignup.html",
