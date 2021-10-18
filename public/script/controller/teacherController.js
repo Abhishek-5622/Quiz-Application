@@ -1,24 +1,13 @@
-app.controller('teacherController', function ($scope, $http, $rootScope, $location) {
+app.controller('teacherController', function ($scope, $http, $rootScope, $location,myFact) {
 
 
-    $scope.teacherLogin = function (username, password) {
-        var data = {
-            username: username,
-            password: password
-        }
-        console.log(data)
+    $scope.teacherLogin = function (email, password) {
+        myFact.Login(email, password,"https://marksup-adgitm.herokuapp.com/teacher/signIN",'/teacher-dashboard','teacher')
     }
 
-    $scope.teacherSignUp = function (username, password, confirmPassword) {
-        if (password !== confirmPassword) {
-            alert('password and confirm password must be same..')
-        }
-        else {
-            var data = {
-                username: username,
-                password: password
-            }
-            console.log(data)
-        }
+    $scope.teacherSignUp = function (name, email, password, confirmPassword) {
+        myFact.Signup(name, email, password, confirmPassword,"https://marksup-adgitm.herokuapp.com/teacher/signUp",'/teacher-Login')
     }
+
+   
 })

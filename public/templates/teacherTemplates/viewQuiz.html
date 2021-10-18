@@ -8,7 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand">MarkUp</a>
+        <a href="#!/teacher-dashboard" class="navbar-brand">MarkUp</a>
       </div>
 
       <div class="navbar-collapse collapse in" collapse="isCollapsed" aria-expanded="true">
@@ -21,9 +21,9 @@
         
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <button class="btn btn-danger myBtn">
-             LogOut
-          </button>
+            <button class="btn btn-danger myBtn" ng-click='teacherlogoutFn()'>
+              LogOut
+            </button>
            
           </li>
         </ul>
@@ -32,7 +32,29 @@
   </nav>
 
 
- hiiiiiiiiii
+
+<center><h1>Quiz</h1></center>
+
+
+<div class="container card">
+<center><h3>Quiz Name</h3></center>
+<center><p>Code</p></center>
+<div class='quizDetailsContainer'> 
+  <div>Start time</div>
+  <div>End time</div>
+  <div>total marks</div>
+</div>
+<br>
+<div class='quizDetailsContainer2'> 
+  <button class='btn btn-success'><i class="fas fa-edit"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class='btn btn-danger'><i class="fas fa-trash-alt"></i></button>
+</div>
+
+
+
+</div>
+
+
 </div>
 
 

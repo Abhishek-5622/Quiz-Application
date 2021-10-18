@@ -8,12 +8,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand">MarkUp</a>
+        <a href="#!/teacher-dashboard" class="navbar-brand">MarkUp</a>
       </div>
 
       <div class="navbar-collapse collapse in" collapse="isCollapsed" aria-expanded="true">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#!/viewQuiz">View Quiz <span class="sr-only">(current)</span></a>
+          <li ><a href="#!/viewQuiz">View Quiz </a>
           </li>
           <li><a href="#">Analytic</a>
           </li>
@@ -21,7 +21,7 @@
 
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <button class="btn btn-danger myBtn">
+            <button class="btn btn-danger myBtn" ng-click='teacherlogoutFn()'>
               LogOut
             </button>
 
@@ -31,8 +31,11 @@
     </div>
   </nav>
 
+  <div class="container-fluid completeQuiz">
 
   <div class='container createQuizContainer'>
+    <br>
+    <br>
     <button class='btn btn-success' ng-click="showQuizHeadingDetails()">
       Create Quiz <i class="fas fa-plus-circle"></i></button>
 
@@ -45,8 +48,8 @@
 
         <div class="form-group">
           <label for="quizName" class="col-md-2 control-label quizHeadingDetails">Quiz Name:</label>
-          <div class="col-md-8">
-            <input type="text" class="form-control quizHeadingDetails" />
+          <div class="col-md-8" >
+            <input type="text" ng-model="quizName" class="form-control quizHeadingDetails" />
           </div>
         </div>
         <br><br>
@@ -54,21 +57,21 @@
           <div class="form-group">
             <label for="marks" class="col-md-5 control-label quizHeadingDetails">Total Marks: </label>
             <div class="col-md-4">
-              <input type="number" value="" class="form-control" />
+              <input type="number" value="" ng-model="totalMarks" class="form-control" />
             </div>
           </div>
           <br><br>
           <div class="form-group">
             <label for="time" class="col-md-5 control-label quizHeadingDetails">Starting time:</label>
             <div class="col-md-4">
-              <input type="number" ng-model="timw" value="" class="form-control" />
+              <input type="text" ng-model="Stime" value="" class="form-control" />
             </div>
           </div>
           <br><br>
           <div class="form-group">
             <label for="time" class="col-md-5 control-label quizHeadingDetails">End time:</label>
             <div class="col-md-4">
-              <input type="number" ng-model="timw" value="" class="form-control" />
+              <input type="text" ng-model="Etime" value="" class="form-control" />
             </div>
           </div>
         </div>
@@ -80,7 +83,8 @@
       </div>
       <div class="modal-footer">
 
-        <button class="btn btn-primary" type="button" ng-click="showSection()">Next</button>
+        <button class="btn btn-primary" type="button"
+          ng-click="showSection(quizName,totalMarks,Stime,Etime)">Next</button>
         <!-- <button class="btn btn-warning" type="button" ng-click="">Delete</button> -->
 
       </div>
@@ -96,53 +100,64 @@
         <div class="form-group">
           <!-- <label for="quizName" class="col-md-2 control-label quizHeadingDetails"> Write question</label> -->
           <div class="col-md-12">
-            <textarea placeholder="Write Question Here" type="text" class="form-control quizHeadingDetails"></textarea>
+            <textarea placeholder="Write Question Here" type="text" class="form-control quizHeadingDetails"
+              ng-model="question"></textarea>
           </div>
         </div>
         <br>
         <div class="form-group">
 
           <div class="col-md-12">
-            <input type="text" class="form-control" placeholder="Option 1">
+            <input type="text" class="form-control" placeholder="Option 1" ng-model='opt1'>
           </div>
         </div>
         <br>
         <div class="form-group">
 
           <div class="col-md-12">
-            <input type="text" class="form-control" placeholder="Option 2">
+            <input type="text" class="form-control" placeholder="Option 2" ng-model='opt2'>
           </div>
         </div>
         <br>
         <div class="form-group">
 
           <div class="col-md-12">
-            <input type="text" class="form-control" placeholder="Option 3">
+            <input type="text" class="form-control" placeholder="Option 3" ng-model='opt3'>
           </div>
         </div>
         <br>
         <div class="form-group">
           <div class="col-md-12">
-            <input type="text" class="form-control" placeholder="Option 4">
+            <input type="text" class="form-control" placeholder="Option 4" ng-model='opt4'>
           </div>
         </div>
 
         <br>
         <div class="form-group">
           <div class="col-md-12">
-            <input type="text" class="form-control" placeholder="Correct Answer">
+            <input type="text" class="form-control" placeholder="Correct Answer" ng-model='corrAns'>
+          </div>
+        </div>
+
+        <br>
+        <div class="form-group">
+          <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Time" ng-model='quesTime'>
           </div>
         </div>
         <br><br><br><br>
-      
+
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" type="button" my-directive >Add</button>
+        <button class="btn btn-primary" type="button" my-directive
+          ng-click="createQuiz(question,opt1,opt2,opt3,opt4,corrAns,quesTime)">Add</button>
+        <button class="btn btn-primary" type="button"
+          ng-click="lock(question,opt1,opt2,opt3,opt4,corrAns,quesTime)">Lock</button>
       </div>
-    
+
     </div>
 
- 
+
   </div>
 
 
@@ -150,8 +165,10 @@
 
   <hr noshade="black">
   <center>
-    <button ng-if="sectionShow" class='btn btn-success'>
+    <button ng-if="sectionShow2" class='btn btn-success' ng-click="submitQuiz()">
       Create
     </button>
   </center>
+
+</div>
 </div>

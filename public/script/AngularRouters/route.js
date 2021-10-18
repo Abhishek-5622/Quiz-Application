@@ -21,17 +21,44 @@ angular.module('myroute', ['ngRoute']).config(function($routeProvider) {
         controller:'teacherController'
       })
       .when("/teacher-dashboard", {
+        resolve: {
+          function($location,myFact) {
+            console.log(localStorage.getItem('token'))
+              if (localStorage.getItem('token')===null || localStorage.getItem('token')==='' || localStorage.getItem('role')!=='teacher' ) {
+                  myFact.Message('danger',"You Are Not Allow To Access This Page")
+                  $location.path('/')
+              }
+          }
+      },
         templateUrl : "templates/teacherTemplates/teacherDashboard.html",
         controller: 'createQuizController'
       })
 
-      .when("/admin-login", {
-        templateUrl : "templates/adminTemplates/adminLogin.html"
-       
+      .when("/student-dashboard", {
+        resolve: {
+          function($location,myFact) {
+              if (localStorage.getItem('token')===null || localStorage.getItem('token')==='' || localStorage.getItem('role')!=='student') {
+                  myFact.Message('danger',"You Are Not Allow To Access This Page")
+                  $location.path('/')
+              }
+          }
+      },
+        templateUrl : "templates/studentTemplates/studentDashboard.html",
+        controller: 'createQuizController'
       })
+
+      
       .when("/viewQuiz", {
-        templateUrl : "templates/teacherTemplates/viewQuiz.html"
-       
+        resolve: {
+          function($location,myFact) {
+              if(localStorage.getItem('token')===null || localStorage.getItem('token')==='' || localStorage.getItem('role')!=='teacher' ){
+                  myFact.Message('danger',"You Are Not Allow To Access This Page")
+                  $location.path('/')
+              }
+          }
+      },
+        templateUrl : "templates/teacherTemplates/viewQuiz.html",
+        controller: 'createQuizController'
       })
     
   });

@@ -9,6 +9,7 @@ var bodyParser = require("body-parser")
 const path = require('path');
 var passport = require('passport');
 const cookieParser = require('cookie-parser')
+var cors = require('cors')
 // ************Model(Schema)**********************
 
 // *****************Route file**********************
@@ -28,6 +29,14 @@ app.use(bodyParser.json())
 app.use(express.static("public"));
 app.use(cookieParser())
 
+
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+
+app.use(cors(corsOptions));
 
 // routing and API Call
 app.get('/', (req, res) => {
