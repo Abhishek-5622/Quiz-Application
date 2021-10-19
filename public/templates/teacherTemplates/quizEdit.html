@@ -1,0 +1,51 @@
+<div class="editBox">
+    <div contenteditable="true">
+        <center>
+            <h1>{{QuizAccToCode.name}}</h1>
+        </center>
+    </div>
+
+    <hr>
+    <center>
+        <h2> Quiz Details</h2>
+    </center>
+    <div contenteditable="true" class="totalMark">Total Marks: {{QuizAccToCode.uniqueCode}}</div>
+    <div contenteditable="true" class="totalMark">Total Marks: {{QuizAccToCode.totalMarks}}</div>
+    <div contenteditable="true" class="totalMark">Starting Time: {{QuizAccToCode.startTime}}</div>
+    <div contenteditable="true" class="totalMark">End Timing: {{QuizAccToCode.endTime}}</div>
+
+    <hr>
+
+    <center>
+        <h2> Questions</h2>
+    </center>
+
+    <div ng-repeat='question in QuizAccToCode.questionList'>
+        <div contenteditable="true" class='ques'>
+            <b>Q. </b>{{question.Question}}
+        </div>
+        <div contenteditable="true" class='op'>
+            <b>A. </b>{{question.OptionA}}
+        </div>
+        <div contenteditable="true" class='op'>
+            <b>B. </b>{{question.OptionB}}
+        </div>
+        <div contenteditable="true" class='op'>
+            <b>C. </b>{{question.OptionC}}
+        </div>
+        <div contenteditable="true" class='op'>
+            <b>D. </b>{{question.OptionD}}
+        </div>
+        <hr>
+        <div contenteditable="true" class='ans'>
+            <b>Ans. {{question.CorrectAnswer}}</b>
+        </div>
+        <div contenteditable="true" class='qtime'>
+          <b> Time: </b> {{question.time}}
+        </div>
+
+        <hr>
+    </div>
+    <center>
+<button class="btn btn-success">Update</button></center>
+</div>

@@ -44,7 +44,7 @@ angular.module('myroute', ['ngRoute']).config(function($routeProvider) {
           }
       },
         templateUrl : "templates/studentTemplates/studentDashboard.html",
-        controller: 'createQuizController'
+        controller: 'studentDashboardController'
       })
 
       
@@ -59,6 +59,19 @@ angular.module('myroute', ['ngRoute']).config(function($routeProvider) {
       },
         templateUrl : "templates/teacherTemplates/viewQuiz.html",
         controller: 'createQuizController'
+      })
+
+      .when("/editQuiz", {
+        resolve: {
+          function($location,myFact) {
+              if(localStorage.getItem('token')===null || localStorage.getItem('token')==='' || localStorage.getItem('role')!=='teacher' ){
+                  myFact.Message('danger',"You Are Not Allow To Access This Page")
+                  $location.path('/')
+              }
+          }
+      },
+        templateUrl : "templates/teacherTemplates/quizEdit.html",
+        controller: 'editQuizController'
       })
     
   });

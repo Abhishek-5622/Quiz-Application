@@ -3,12 +3,17 @@
 }
 body{
     margin: 0px;
+   
 }
 
 .title_div{
     display: flex;
     align-items: center;
-    background-color: white;
+    /* background-color:#98bb2f;; */
+    /* background-image: url('../static/4e.png');
+    background-repeat: no-repeat;
+    background-size: cover; */
+    /* background-attachment: fixed; */
     height: 13rem;
      
 }
@@ -18,8 +23,8 @@ body{
     padding-left: 3rem;
 }
 .icon_name{
-    margin-left: 1.5rem;
-    font-size:3rem;
+    
+    font-size:6rem;
 }
 .main_div{
     /* background-color:currentColor; */
@@ -240,6 +245,7 @@ input:focus {
     background-color: aquamarine;
     border-radius: 20px 20px;
     padding-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 .quizDetailsContainer{
     display: flex;
@@ -267,4 +273,10 @@ background-image: url('../static/ben-mullins-oXV3bzR7jxI-unsplash.jpg');
 background-repeat: no-repeat;
 background-size: cover;
 min-height: 100vh;
+}
+.editBox{
+    border: 1px solid black;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-left: 3rem;
 }

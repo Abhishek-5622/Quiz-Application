@@ -20,7 +20,7 @@
   
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <button class="btn btn-danger myBtn">
+              <button class="btn btn-danger myBtn" ng-click="studentlogoutFn()">
                 LogOut
               </button>
   
@@ -34,8 +34,9 @@
   
   <div class="codeContainer container">
       Code:
-      <input type=text placeholder="Unique quiz code">
+      <input type=text placeholder="Unique quiz code" ng-model="code">
   </div>
+  <button class='btn btn-success' ng-click="quiz(code)">Submit</button>
   
 
   <!-- <div class="container mt-5">

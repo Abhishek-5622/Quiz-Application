@@ -63,7 +63,7 @@
           <br><br>
           <div class="form-group">
             <label for="time" class="col-md-5 control-label quizHeadingDetails">Starting time:</label>
-            <div class="col-md-4">
+            <div class="col-md-5">
               <input type="text" ng-model="Stime" value="" class="form-control" />
             </div>
           </div>
@@ -72,6 +72,13 @@
             <label for="time" class="col-md-5 control-label quizHeadingDetails">End time:</label>
             <div class="col-md-4">
               <input type="text" ng-model="Etime" value="" class="form-control" />
+            </div>
+          </div>
+          <br><br>
+          <div class="form-group">
+            <label for="time" class="col-md-5 control-label quizHeadingDetails">Unqiue Code:</label>
+            <div class="col-md-5">
+              <input type="text" ng-model="UnqiueCode" value="" class="form-control" />
             </div>
           </div>
         </div>
@@ -84,8 +91,8 @@
       <div class="modal-footer">
 
         <button class="btn btn-primary" type="button"
-          ng-click="showSection(quizName,totalMarks,Stime,Etime)">Next</button>
-        <!-- <button class="btn btn-warning" type="button" ng-click="">Delete</button> -->
+          ng-click="showSection(quizName,totalMarks,Stime,Etime,UnqiueCode)">Next</button>
+       
 
       </div>
     </div>

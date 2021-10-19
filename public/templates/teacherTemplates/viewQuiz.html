@@ -36,17 +36,17 @@
 <center><h1>Quiz</h1></center>
 
 
-<div class="container card">
-<center><h3>Quiz Name</h3></center>
-<center><p>Code</p></center>
+<div class="container card" ng-repeat ="q in Tquiz">
+<center><h3><b>Quiz Name: </b>{{q.quizId.name}}</h3></center>
+<center><p><b>Code: </b>{{q.quizId.uniqueCode}}</p></center>
 <div class='quizDetailsContainer'> 
-  <div>Start time</div>
-  <div>End time</div>
-  <div>total marks</div>
+  <div><b>Starting Time: </b>{{q.quizId.startTime}}</div>
+  <div><b>End Time: </b>{{q.quizId.endTime}}</div>
+  <div><b>Total Marks: </b>{{q.quizId.totalMarks}}</div>
 </div>
 <br>
 <div class='quizDetailsContainer2'> 
-  <button class='btn btn-success'><i class="fas fa-edit"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
+  <button class='btn btn-success' ng-click="UpdateQuiz(q.quizId.uniqueCode)"><i class="fas fa-edit"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
     <button class='btn btn-danger'><i class="fas fa-trash-alt"></i></button>
 </div>
 
