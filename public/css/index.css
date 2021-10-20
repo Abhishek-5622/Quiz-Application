@@ -234,6 +234,8 @@ input:focus {
 .quizHeadingDetails{
     padding-top: 0.3rem;
     padding-left: 1rem;
+    color: black;
+    font-size: 2rem;
 }
 
 
@@ -259,7 +261,9 @@ input:focus {
     align-items: center;
 }
 .codeContainer{
-    height: 70%;
+    margin-left: 50rem;
+    font-size: 3rem;
+    margin-top: 2rem;
 }
 .para{
     color: white;
@@ -279,4 +283,12 @@ min-height: 100vh;
     margin-left: 2rem;
     margin-right: 2rem;
     padding-left: 3rem;
+}
+.ans{
+    color: blue;
+}
+.squizbtn{
+    height: 5rem;
+    width: 9rem;
+    font-size: 2rem;
 }

@@ -61,10 +61,14 @@ app.directive('myDirective', function () {
 
 
 
-app.controller('createQuizController', function ($scope, $http, $rootScope, $location,myFact) {
+app.controller('createQuizController', function ($scope, $http, $rootScope, $location,myFact,$log) {
     $scope.quizStart = false;
     $scope.sectionShow = false;
     $scope.sectionShow2=false;
+
+
+ 
+
 
     $scope.showQuizHeadingDetails = function () {
         $scope.quizStart = true;
@@ -110,6 +114,14 @@ $scope.arr = [];
         }
         console.log(data)
         $scope.createQuizArr(data)
+       
+        document.querySelector('.v1').value = "";
+        document.querySelector('.v2').value = "";
+        document.querySelector('.v3').value = "";
+        document.querySelector('.v4').value = "";
+        document.querySelector('.v5').value = "";
+        document.querySelector('.v6').value = "";
+        document.querySelector('.v7').value = "";
     }
     }
     
@@ -139,15 +151,15 @@ $scope.arr = [];
 
         var mydata = $scope.myQuizData
        console.log(mydata)
-        // $http.post("https://marksup-adgitm.herokuapp.com/quiz/create",data).then(function (response) {
-        //     if(response.status===200){
-        //         myFact.Message('success','Quiz Created')
-        //     }
+        $http.post("https://marksup-adgitm.herokuapp.com/quiz/create",mydata).then(function (response) {
+            if(response.status===200){
+                myFact.Message('success','Quiz Created')
+            }
             
 
-        // }).catch(function (error) {
-        //     console.log(error);
-        // })
+        }).catch(function (error) {
+            console.log(error);
+        })
 
     }
 
@@ -174,7 +186,7 @@ $scope.arr = [];
     $scope.viewQuizOfTeacher();
 
     $scope.UpdateQuiz=function(code){
-        console.log(code)
+        
         $http.post('https://marksup-adgitm.herokuapp.com/get/quizByUniqueCode',{uniqueCode:code}).then(function(data){
             $location.path('/editQuiz')
             $rootScope.QuizAccToCode = data.data.quiz;
@@ -184,6 +196,34 @@ $scope.arr = [];
         })
     }
 
-    
+    $scope.mytime = new Date();
+
+  $scope.hstep = 1;
+  $scope.mstep = 15;
+
+  $scope.options = {
+    hstep: [1, 2, 3],
+    mstep: [1, 5, 10, 15, 25, 30]
+  };
+
+  $scope.ismeridian = true;
+  $scope.toggleMode = function() {
+    $scope.ismeridian = ! $scope.ismeridian;
+  };
+
+  $scope.update = function() {
+    var d = new Date();
+    d.setHours( 14 );
+    d.setMinutes( 0 );
+    $scope.mytime = d;
+  };
+
+  $scope.changed = function () {
+    $log.log('Time changed to: ' + $scope.mytime);
+  };
+
+  $scope.clear = function() {
+    $scope.mytime = null;
+  };
     
 })
