@@ -40,7 +40,8 @@ angular.module('Factory', []).factory('myFact', function ($rootScope, $location,
     }
 
     function Login(email,password ,url,mypath,val) {
-        if(email===undefined || password===undefined){
+        
+        if(email==="" || password===""){
             Message('danger','Please fill all details')
         }
         else{
@@ -48,11 +49,11 @@ angular.module('Factory', []).factory('myFact', function ($rootScope, $location,
             email: email,
             password: password
         }).then(function (response) {
-            console.log(response)
-            if(response.status===200){
+         
+            if(response.status===200 && response.data.message === undefined){
                 localStorage.setItem('token',response.data.token);
                 localStorage.setItem('role',val);
-                console.log("print");
+             
                 $location.path(mypath);
                 Message('success','Login Successfully..')
             }

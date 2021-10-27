@@ -46,8 +46,30 @@ angular.module('myroute', ['ngRoute']).config(function($routeProvider) {
         templateUrl : "templates/studentTemplates/studentDashboard.html",
         controller: 'studentDashboardController'
       })
-
-      
+      .when("/test", {
+        resolve: {
+          function($location,myFact) {
+              if (localStorage.getItem('token')===null || localStorage.getItem('token')==='' || localStorage.getItem('role')!=='student') {
+                  myFact.Message('danger',"You Are Not Allow To Access This Page")
+                  $location.path('/')
+              }
+          }
+      },
+        templateUrl : "templates/studentTemplates/test.html",
+        controller: 'studentDashboardController'
+      })
+      .when('/analytic', {
+        resolve: {
+          function($location,myFact) {
+              if(localStorage.getItem('token')===null || localStorage.getItem('token')==='' || localStorage.getItem('role')!=='teacher' ){
+                  myFact.Message('danger',"You Are Not Allow To Access This Page")
+                  $location.path('/')
+              }
+          }
+      },
+        templateUrl : "templates/teacherTemplates/analytic.html",
+        controller: 'AnalyticController'
+      })
       .when("/viewQuiz", {
         resolve: {
           function($location,myFact) {

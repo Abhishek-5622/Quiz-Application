@@ -35,13 +35,20 @@
 
   <div class="codeContainer">
       Code: 
-      <input type=text placeholder="Unique quiz code" ng-model="code">
-      <button class='btn btn-success squizbtn' ng-click="quiz(code)">Submit</button>
+      <input type=text placeholder="Unique quiz code" ng-model="code" class='codeVal'>
+      <button class='btn btn-success squizbtn' ng-click="startQuiz(code)">Submit</button>
   </div>
  
-  
-<div class="showQuizContainer">
+  <hr>
+<hr>
 
+<div ng-if="showStart" class="showQuizContainer">
+<div class="start">
+<button class='btn btn-success' ng-click='goToTestPage()'>Start Test</button>
+</div>
+<div class="start">
+  <button class='btn btn-danger' ng-click ='cancelQuiz()'>Cancel</button>
+  </div>
   
 </div>
  

@@ -9,7 +9,7 @@
     <center>
         <h2> Quiz Details</h2>
     </center>
-    <div contenteditable="true" class="totalMark">Total Marks: {{QuizAccToCode.uniqueCode}}</div>
+    <div contenteditable="true" class="totalMark">Unique Code: {{QuizAccToCode.uniqueCode}}</div>
     <div contenteditable="true" class="totalMark">Total Marks: {{QuizAccToCode.totalMarks}}</div>
     <div contenteditable="true" class="totalMark">Starting Time: {{QuizAccToCode.startTime}}</div>
     <div contenteditable="true" class="totalMark">End Timing: {{QuizAccToCode.endTime}}</div>
@@ -47,5 +47,8 @@
         <hr>
     </div>
     <center>
-<button class="btn btn-success">Update</button></center>
+<button class="btn btn-success" ng-click='updateQuiz(QuizAccToCode. _id)'>Update</button></center>
+<br>
+<br>
+<br>
 </div>

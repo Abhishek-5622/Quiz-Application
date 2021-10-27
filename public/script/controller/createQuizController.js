@@ -185,12 +185,12 @@ $scope.arr = [];
     }
     $scope.viewQuizOfTeacher();
 
-    $scope.UpdateQuiz=function(code){
+    $scope.goToUpdateQuiz=function(code){
         
         $http.post('https://marksup-adgitm.herokuapp.com/get/quizByUniqueCode',{uniqueCode:code}).then(function(data){
             $location.path('/editQuiz')
             $rootScope.QuizAccToCode = data.data.quiz;
-            console.log($rootScope.QuizAccToCode)
+            // console.log($rootScope.QuizAccToCode)
         }).catch(function(err){
             console.log(err)
         })
@@ -225,5 +225,18 @@ $scope.arr = [];
   $scope.clear = function() {
     $scope.mytime = null;
   };
+
+
+  $scope.deleteQuiz=function(code){
+    console.log(code);
+    // $http.post('',{'uniqueCode':code}).then(function(data){
+    //     console.log(data)
+    // }).catch(function(err){
+    //     console.log(err)
+    // })
+  }
+
+
+  
     
 })

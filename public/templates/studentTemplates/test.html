@@ -1,0 +1,64 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="endTest" ng-click="endTestFn()">
+              End Test
+          </li>
+        </ul>
+      </div>
+  </nav>
+  <marquee>Don't refresh this page and compusory to save your answers</marquee>
+<div class='squizTitle'>
+  <center>
+      {{sdetails.name}}
+  </center>
+</div>
+<div class="container mm">
+    MM. {{sdetails.totalMarks}}
+</div>
+
+
+<div class='container quizTest'>
+    
+       <div class="container timerConatiner">
+            <div class='timer'>
+                {{counter}}
+                </div>
+            </div>
+       
+    <div class='quizQuestion'>
+      Q.  {{sdetails.questionList[0].Question}}
+    </div>
+   
+   
+    <hr noshade="black" class="horLine">
+<div class="option">
+    <div class="form-check">
+        <input class="form-check-input i1" type="radio" name="flexRadioDefault" id="flexRadioDefault1" ng-model="ans" value={{sdetails.questionList[0].OptionA}}>
+        <label class="form-check-label o1" for="flexRadioDefault1">
+            {{sdetails.questionList[0].OptionA}}
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input i2" type="radio" name="flexRadioDefault" id="flexRadioDefault2" ng-model="ans" value={{sdetails.questionList[0].OptionB}}>
+        <label class="form-check-label o2" for="flexRadioDefault2">
+            {{sdetails.questionList[0].OptionB}}
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input i3" type="radio" name="flexRadioDefault" id="flexRadioDefault3" ng-model="ans" value={{sdetails.questionList[0].OptionC}} >
+        <label class="form-check-label o3" for="flexRadioDefault2">
+            {{sdetails.questionList[0].OptionC}}
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input i4" type="radio" name="flexRadioDefault" id="flexRadioDefault4" ng-model="ans" value={{sdetails.questionList[0].OptionD}}>
+        <label class="form-check-label o4" for="flexRadioDefault2">
+            {{sdetails.questionList[0].OptionD}}
+        </label>
+      </div>
+</div>
+<div class="nextBTNContainer">
+<button class='btn btn-success next' ng-click="saveFN()">Save</button>
+</div>
+</div>
